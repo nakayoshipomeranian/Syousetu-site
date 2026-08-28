@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>先に読んで欲しいこと | rmsm</title>
+<title>自己紹介 | rmsm</title>
 <style>
 body {
   margin: 0;
@@ -35,21 +35,40 @@ header h1 {
   font-weight: bold;
   color: #665078;
 }
-/* 中身 */
-.content {
+/* 自己紹介 */
+.profile {
+  margin-top: 22px;
+  padding: 25px;
+  background: #fff;
+  border: 2px solid #cdb5ea;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+.profile-row {
+  padding: 15px 0;
+  border-bottom: 1px dashed #d4c0ee;
+  line-height: 1.8;
+}
+.profile-row:first-child {
+  padding-top: 0;
+}
+.profile-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.profile-title {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #765f8b;
+}
+/* 自由記入欄 */
+.message {
   margin-top: 22px;
   padding: 25px;
   background: #fff;
   border: 2px solid #cdb5ea;
   border-radius: 16px;
   line-height: 1.9;
-  box-sizing: border-box;
-}
-.content p {
-  margin: 0 0 20px;
-}
-.content p:last-child {
-  margin-bottom: 0;
 }
 /* 戻るボタン */
 .back {
@@ -70,19 +89,32 @@ header h1 {
 <header>
   <h1>自己紹介</h1>
 </header>
-<div class="content">
+<div class="profile">
+  <div class="profile-row">
+    <div class="profile-title">名前</div>
+    ここに名前を書きます。
+  </div>
+  <div class="profile-row">
+    <div class="profile-title">好きなもの</div>
+    ここに好きなものを書きます。
+  </div>
+  <div class="profile-row">
+    <div class="profile-title">好きな作品</div>
+    ここに好きな作品を書きます。
+  </div>
+  <div class="profile-row">
+    <div class="profile-title">ひとこと</div>
+    ここにひとことを書きます。
+  </div>
+</div>
+<div class="message">
 
-  <p>ここに文章を入れます。</p>
-
-  <p>ここに文章を入れます。</p>
-
-  <p>ここに文章を入れます。</p>
+ここに自由に自己紹介を書きます。
 
 </div>
 
-<a class="back" href="home.html">トップへ戻る</a>
+トップへ戻る
 
 </div>
-
 </body>
 </html>
