@@ -46,7 +46,7 @@ header h1 {
   line-height: 1.9;
   box-sizing: border-box;
 }
-/* 大好きボタン */
+/* ボタン */
 .like-area {
   margin-top: 25px;
   text-align: center;
@@ -64,9 +64,15 @@ header h1 {
 .like-button:hover {
   background: #d4c0ee;
 }
+.message {
+  margin-top: 20px;
+  min-height: 30px;
+  line-height: 1.7;
+}
 .count {
   margin-top: 15px;
   font-size: 14px;
+  color: #7b6b89;
 }
 /* 戻るボタン */
 .back {
@@ -89,23 +95,75 @@ header h1 {
 </header>
 <div class="content">
   <p>
-    ここに好きなことについての文章を書きます。
-  </p>
-  <p>
-    同じ気持ちの人は、ボタンを押してください。
+    れめさめが好きな方へ。<br>
+    「れめさめ大好き！」と思った時に押すボタンです。
   </p>
 </div>
 <div class="like-area">
-  <button class="like-button" id="likeButton">
-    大好き！
+  <button class="like-button" id="btn">
+    れめさめ大好き！
   </button>
-  <div class="count">
-    現在 0 人と同じ気持ちです
+  <div class="message" id="msg"></div>
+  <div class="count" id="count">
+    読み込み中...
   </div>
 </div>
 
 トップへ戻る
 
 </div>
+<script type="module">
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment
+}
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyAFkIeLQkAhdyAvEE2ADHJQFotz8aDVejI",
+  authDomain: "doushi-button.firebaseapp.com",
+  projectId: "doushi-button",
+  storageBucket: "doushi-button.firebasestorage.app",
+  messagingSenderId: "221646366483",
+  appId: "1:221646366483:web:fa7fd666f7f7c4cb15dce6"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const ref = doc(db, "doushi", "counter");
+const messages = [
+  "❤️ 私も！！！！！！！！！！！",
+  "🩷 れめさめって、良いですよね……。",
+  "💙 ずっと一緒に大好きでいましょう。"
+];
+async function init() {
+  const snap = await getDoc(ref);
+  if (!snap.exists()) {
+    await setDoc(ref, { count: 0 });
+  }
+  await load();
+}
+async function load() {
+  const snap = await getDoc(ref);
+  const data = snap.data();
+  document.getElementById("count").innerText =
+    `現在 ${data.count} 回れめさめが愛されました`;
+}
+document.getElementById("btn").addEventListener("click", async () => {
+  await updateDoc(ref, {
+    count: increment(1)
+  });
+  const randomMessage =
+    messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById("msg").innerText =
+    randomMessage;
+  await load();
+});
+init();
+</script>
 </body>
 </html>
