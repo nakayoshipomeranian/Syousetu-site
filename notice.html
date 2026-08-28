@@ -3,42 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>先に読んで欲しいこと</title>
-
+<title>先に読んで欲しいこと | rmsm</title>
 <style>
-
 body {
   margin: 0;
-  background-color: #eee5ff;
   color: #5b506b;
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  background-color: #eee5ff;
+  background-image:
+    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
-
 .container {
   width: 88%;
   max-width: 600px;
   margin: 30px auto;
 }
-
-h1 {
-  padding: 25px;
+/* タイトル */
+header {
   text-align: center;
+  padding: 30px 20px;
   background: #dfd0f5;
-  border: 3px dotted #b99bdd;
   border-radius: 20px;
-  font-size: 25px;
+  border: 3px dotted #b99bdd;
+  box-sizing: border-box;
 }
-
+header h1 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: #665078;
+}
+/* 中身 */
 .content {
-  margin-top: 20px;
+  margin-top: 22px;
   padding: 25px;
   background: #fff;
   border: 2px solid #cdb5ea;
   border-radius: 16px;
   line-height: 1.9;
+  box-sizing: border-box;
 }
-
+.content p {
+  margin: 0 0 20px;
+}
+.content p:last-child {
+  margin-bottom: 0;
+}
+/* 戻るボタン */
 .back {
   display: block;
   margin-top: 20px;
@@ -50,29 +63,21 @@ h1 {
   border: 2px solid #cdb5ea;
   border-radius: 14px;
 }
-
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
-<h1>先に読んで欲しいこと</h1>
-
+<header>
+  <h1>先に読んで欲しいこと</h1>
+</header>
 <div class="content">
-
-<p>ここに注意事項を書きます。</p>
-
-<p>ここにサイトについてのお知らせを書きます。</p>
-
-<p>ここに作品についての注意書きを書きます。</p>
-
+  <p>ここに文章を入れます。</p>
+  <p>ここに文章を入れます。</p>
+  <p>ここに文章を入れます。</p>
 </div>
 
-<a class="back" href="home.html">トップへ戻る</a>
+トップへ戻る
 
 </div>
-
 </body>
 </html>
