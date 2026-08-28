@@ -11,8 +11,8 @@ body {
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   background-color: #eee5ff;
   background-image:
-    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+    linear-gradient(rgba(203,180,235,.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203,180,235,.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 .container {
@@ -20,28 +20,26 @@ body {
   max-width: 600px;
   margin: 30px auto;
 }
-/* タイトル */
 header {
   text-align: center;
   padding: 30px 20px;
   background: #dfd0f5;
   border-radius: 20px;
   border: 3px dotted #b99bdd;
-  box-sizing: border-box;
 }
-header h1 {
+h1 {
   margin: 0;
   font-size: 25px;
-  font-weight: bold;
   color: #665078;
 }
-/* 作品一覧 */
 .novel-list {
   margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .novel {
   display: block;
-  margin-bottom: 14px;
   padding: 20px;
   background: #fff;
   border: 2px solid #cdb5ea;
@@ -59,7 +57,6 @@ header h1 {
   line-height: 1.7;
   color: #7b6b89;
 }
-/* 戻るボタン */
 .back {
   display: block;
   margin-top: 25px;
