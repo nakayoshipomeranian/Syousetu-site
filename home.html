@@ -5,25 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>rmsm</title>
 <style>
-/* 全体 */
 body {
   margin: 0;
   color: #5b506b;
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-  /* パステル紫のギンガムチェック */
   background-color: #eee5ff;
   background-image:
     linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
     linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
-/* 全体の幅 */
 .container {
   width: 88%;
   max-width: 600px;
   margin: 30px auto;
 }
-/* タイトル */
+/* サイト名 */
 header {
   text-align: center;
   padding: 40px 20px;
@@ -47,6 +44,7 @@ header h1 {
   background: #fff;
   border-radius: 16px;
   border: 2px solid #d4c0ee;
+  box-sizing: border-box;
 }
 .update-title {
   margin: 0 0 12px;
@@ -59,10 +57,9 @@ header h1 {
   font-size: 13px;
   line-height: 1.7;
 }
-/* 項目 */
+/* メニュー */
 .menu {
   margin-top: 25px;
-  /* 必ず縦一列 */
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -72,6 +69,7 @@ header h1 {
   display: block;
   width: 100%;
   padding: 17px;
+  box-sizing: border-box;
   text-align: center;
   text-decoration: none;
   color: #5b506b;
@@ -79,10 +77,6 @@ header h1 {
   border: 2px solid #cdb5ea;
   border-radius: 14px;
   font-weight: bold;
-  box-sizing: border-box;
-}
-.menu a:hover {
-  background: #f7f1ff;
 }
 /* フッター */
 footer {
@@ -96,43 +90,25 @@ footer {
 </head>
 <body>
 <div class="container">
-<header>
-  <h1>rmsm</h1>
-</header>
-<div class="update">
-  <p class="update-title">更新情報</p>
-  <p>○月○日　サイトを開設しました。</p>
-  <p>○月○日　小説を更新しました。</p>
-</div>
-.menu {
-  margin-top: 25px;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px;
-}
-
-.menu a {
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box;
-}
-
-先に読んで欲しいこと
-
-自己紹介
-
-大好きボタン
-
-小説
-
-イラスト
-
-川柳のコーナー
-
-</div>
-<footer>
-  rmsm
-</footer>
+  <header>
+    <h1>rmsm</h1>
+  </header>
+  <div class="update">
+<p class="update-title">更新情報</p>
+<p>○月○日　サイトを開設しました。</p>
+<p>○月○日　小説を更新しました。</p>
+  </div>
+  <div class="menu">
+<a href="#">先に読んで欲しいこと</a>
+<a href="#">自己紹介</a>
+<a href="#">大好きボタン</a>
+<a href="#">小説</a>
+<a href="#">イラスト</a>
+<a href="#">川柳のコーナー</a>
+  </div>
+  <footer>
+    rmsm
+  </footer>
 </div>
 </body>
 </html>
