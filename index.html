@@ -11,81 +11,83 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eee5ff;
+  background-color: #eee5ff;
+  background-image:
+    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
   color: #5b506b;
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
 }
-/* パスワードボックス */
+/* 中央のボックス */
 .box {
   width: 88%;
   max-width: 420px;
-  padding: 40px 25px;
+  padding: 35px 25px;
   box-sizing: border-box;
   text-align: center;
-  background: #fff;
-  border: 3px dotted #cdb5ea;
+  background: #faf7ff;
+  border: 2px solid #cdb5ea;
   border-radius: 22px;
 }
 /* タイトル */
 h1 {
   margin: 0;
-  padding: 20px;
-  background: #ffd9e3;
-  border-radius: 16px;
   font-size: 28px;
   font-weight: bold;
   letter-spacing: 2px;
   color: #665078;
 }
-/* 説明 */
-.message {
-  margin: 25px 0 8px;
-  font-size: 15px;
-}
-/* 年齢注意 */
+/* 年齢について */
 .age {
-  margin: 18px 0;
-  padding: 12px;
-  background: #f3edff;
-  border: 1px solid #d4c0ee;
-  border-radius: 10px;
+  margin-top: 12px;
   font-size: 13px;
+  color: #665078;
+}
+/* 質問 */
+.question {
+  margin-top: 28px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.question .answer {
   font-weight: bold;
 }
 /* 入力欄 */
 input {
   width: 100%;
+  margin-top: 15px;
   padding: 13px;
   box-sizing: border-box;
-  border: 2px solid #d4c0ee;
+  border: 2px solid #cdb5ea;
   border-radius: 10px;
-  background: #faf8ff;
+  background: #fff;
   color: #5b506b;
   font-size: 16px;
   outline: none;
 }
 input:focus {
-  border-color: #b99bdd;
+  border-color: #a98bc9;
 }
-/* ボタン */
+/* 入るボタン */
 button {
   margin-top: 15px;
   padding: 12px 35px;
-  border: none;
+  border: 2px solid #b99bdd;
   border-radius: 10px;
-  background: #ffd9e3;
-  color: #665078;
+  background: #dfd0f5;
+  color: #5b506b;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
 }
 button:hover {
-  background: #ffcbd8;
+  background: #d4c0ee;
 }
 /* エラー */
 #error {
   margin-top: 12px;
-  color: #9b6675;
+  color: #8b6b9d;
   font-size: 13px;
 }
 </style>
@@ -93,9 +95,12 @@ button:hover {
 <body>
 <div class="box">
   <h1>仲ポメ（rmsm）</h1>
-  <p class="message">明日だ</p>
   <div class="age">
     18歳未満は入らないで下さい
+  </div>
+  <div class="question">
+    どうするか返事をして下さい<br>
+    <span class="answer">「明日だ」</span>
   </div>
 
 <input
