@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秘密のサイト</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f1f5;
+  font-family: sans-serif;
+}
+
+.box {
+  width: 85%;
+  max-width: 400px;
+  text-align: center;
+  background: white;
+  padding: 40px 25px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  margin: 15px 0;
+}
+
+button {
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+#error {
+  color: #d66;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>秘密のサイト</h1>
+  <p>パスワードを入力してください</p>
+
+  <input type="password" id="password" placeholder="Password">
+
+  <br>
+
+  <button onclick="login()">入る</button>
+
+  <p id="error"></p>
+</div>
+
+<script>
+function login() {
+  const password = document.getElementById("password").value;
+
+  if (password === "絶対行く！！") {
+    window.location.href = "home.html";
+  } else {
+    document.getElementById("error").textContent =
+      "パスワードが違います";
+  }
+}
+</script>
+
+</body>
+</html>
