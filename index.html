@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>仲ポメ（rmsm）</title>
-
 <style>
 body {
   margin: 0;
@@ -12,58 +11,109 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f7f1f5;
-  font-family: sans-serif;
+  background: #eee5ff;
+  color: #5b506b;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
 }
-
+/* パスワードボックス */
 .box {
-  width: 85%;
-  max-width: 400px;
-  text-align: center;
-  background: white;
+  width: 88%;
+  max-width: 420px;
   padding: 40px 25px;
-  border-radius: 15px;
   box-sizing: border-box;
+  text-align: center;
+  background: #fff;
+  border: 3px dotted #cdb5ea;
+  border-radius: 22px;
 }
-
+/* タイトル */
+h1 {
+  margin: 0;
+  padding: 20px;
+  background: #ffd9e3;
+  border-radius: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #665078;
+}
+/* 説明 */
+.message {
+  margin: 25px 0 8px;
+  font-size: 15px;
+}
+/* 年齢注意 */
+.age {
+  margin: 18px 0;
+  padding: 12px;
+  background: #f3edff;
+  border: 1px solid #d4c0ee;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+/* 入力欄 */
 input {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   box-sizing: border-box;
-  margin: 15px 0;
+  border: 2px solid #d4c0ee;
+  border-radius: 10px;
+  background: #faf8ff;
+  color: #5b506b;
+  font-size: 16px;
+  outline: none;
 }
-
+input:focus {
+  border-color: #b99bdd;
+}
+/* ボタン */
 button {
-  padding: 10px 30px;
+  margin-top: 15px;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 10px;
+  background: #ffd9e3;
+  color: #665078;
+  font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
 }
-
+button:hover {
+  background: #ffcbd8;
+}
+/* エラー */
 #error {
-  color: #d66;
+  margin-top: 12px;
+  color: #9b6675;
+  font-size: 13px;
 }
 </style>
 </head>
-
 <body>
-
 <div class="box">
-  <h1>仲ポメ</h1>
-  <p>「明日だ」</p>
+  <h1>仲ポメ（rmsm）</h1>
+  <p class="message">明日だ</p>
+  <div class="age">
+    18歳未満は入らないで下さい
+  </div>
 
-  <input type="text" id="password" placeholder="パスワードを入力">
+<input
+type=“text”
+id=“password”
+placeholder=“パスワード”
+autocomplete=“off”
 
   <br>
 
-  <button onclick="login()">入る</button>
+入る
 
   <p id="error"></p>
 </div>
-
 <script>
 function login() {
   const password = document.getElementById("password").value;
-
-  if (password === "絶対行く！！") {
+  if (password === "ここにパスワード") {
     window.location.href = "home.html";
   } else {
     document.getElementById("error").textContent =
@@ -71,6 +121,5 @@ function login() {
   }
 }
 </script>
-
 </body>
 </html>
