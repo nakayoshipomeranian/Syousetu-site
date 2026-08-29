@@ -31,35 +31,26 @@ header {
 header h1 {
   margin: 0;
   font-size: 25px;
-  font-weight: bold;
   color: #665078;
 }
-/* 日記一覧 */
-.diary-list {
+/* 月の一覧 */
+.month-list {
   margin-top: 22px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-.diary {
+.month {
   display: block;
   padding: 20px;
   background: #fff;
   border: 2px solid #cdb5ea;
   border-radius: 16px;
+  text-align: center;
   text-decoration: none;
   color: #5b506b;
-  box-sizing: border-box;
-}
-.diary-date {
-  font-size: 17px;
   font-weight: bold;
-}
-.diary-preview {
-  margin-top: 7px;
-  font-size: 13px;
-  line-height: 1.7;
-  color: #7b6b89;
+  box-sizing: border-box;
 }
 /* トップへ戻る */
 .back {
@@ -82,30 +73,9 @@ header h1 {
 <header>
   <h1>日記</h1>
 </header>
-<div class="diary-list">
-  <a class="diary" href="#">
-    <div class="diary-date">
-      2026年8月29日
-    </div>
-<div class="diary-preview">
-  ここに日記の最初の一部を書きます。
-</div>
-  </a>
-  <a class="diary" href="#">
-    <div class="diary-date">
-      2026年8月28日
-    </div>
-<div class="diary-preview">
-  ここに日記の最初の一部を書きます。
-</div>
-  </a>
-  <a class="diary" href="#">
-    <div class="diary-date">
-      2026年8月27日
-    </div>
-<div class="diary-preview">
-  ここに日記の最初の一部を書きます。
-</div>
+<div class="month-list">
+  <a class="month" href="diary-2026-08.html">
+    2026年8月
   </a>
 </div>
 
