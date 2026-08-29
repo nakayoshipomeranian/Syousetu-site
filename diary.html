@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日記 | rmsm</title>
+<style>
+body {
+  margin: 0;
+  color: #5b506b;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  background-color: #eee5ff;
+  background-image:
+    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.container {
+  width: 88%;
+  max-width: 600px;
+  margin: 30px auto;
+}
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: #dfd0f5;
+  border-radius: 20px;
+  border: 3px dotted #b99bdd;
+  box-sizing: border-box;
+}
+header h1 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: #665078;
+}
+/* 日記一覧 */
+.diary-list {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.diary {
+  display: block;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #cdb5ea;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #5b506b;
+  box-sizing: border-box;
+}
+.diary-date {
+  font-size: 17px;
+  font-weight: bold;
+}
+.diary-preview {
+  margin-top: 7px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #7b6b89;
+}
+/* トップへ戻る */
+.back {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 25px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #5b506b;
+  background: #fff;
+  border: 2px solid #cdb5ea;
+  border-radius: 14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>日記</h1>
+</header>
+<div class="diary-list">
+  <a class="diary" href="#">
+    <div class="diary-date">
+      2026年8月29日
+    </div>
+<div class="diary-preview">
+  ここに日記の最初の一部を書きます。
+</div>
+  </a>
+  <a class="diary" href="#">
+    <div class="diary-date">
+      2026年8月28日
+    </div>
+<div class="diary-preview">
+  ここに日記の最初の一部を書きます。
+</div>
+  </a>
+  <a class="diary" href="#">
+    <div class="diary-date">
+      2026年8月27日
+    </div>
+<div class="diary-preview">
+  ここに日記の最初の一部を書きます。
+</div>
+  </a>
+</div>
 
+<a class="back" href="home.html">トップへ戻る</a>
+
+</div>
+</body>
+</html>
