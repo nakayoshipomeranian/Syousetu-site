@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>それ以外の小説</title>
+<title>小説</title>
 
 <style>
 body {
@@ -27,6 +27,7 @@ body {
   max-width: 420px;
   padding: 35px 25px;
   box-sizing: border-box;
+  text-align: center;
   background: #faf7ff;
   border: 2px solid #cdb5ea;
   border-radius: 22px;
@@ -35,43 +36,33 @@ body {
 /* タイトル */
 h1 {
   margin: 0 0 25px;
-  text-align: center;
   font-size: 26px;
   font-weight: bold;
   letter-spacing: 2px;
   color: #665078;
 }
 
-/* 小説一覧 */
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  margin-bottom: 12px;
-}
-
-li a {
+/* カテゴリ */
+.category {
   display: block;
-  padding: 13px 15px;
+  margin-bottom: 12px;
+  padding: 15px;
   border: 2px solid #cdb5ea;
   border-radius: 10px;
   background: #fff;
   color: #665078;
   text-decoration: none;
-  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-li a:hover {
+.category:hover {
   background: #dfd0f5;
 }
 
 /* 戻る */
 .back {
   margin-top: 25px;
-  text-align: center;
 }
 
 .back a {
@@ -86,20 +77,18 @@ li a:hover {
 
 <div class="box">
 
-  <h1>それ以外</h1>
+  <h1>小説</h1>
 
-  <ul>
-    <li>
-      <a href="novel-03.html">小説タイトル1</a>
-    </li>
+  <a class="category" href="novels/category-rmsm.html">
+    rmsm
+  </a>
 
-    <li>
-      <a href="novel-04.html">小説タイトル2</a>
-    </li>
-  </ul>
+  <a class="category" href="novels/category-other.html">
+    それ以外
+  </a>
 
   <div class="back">
-    <a href="../novel.html">← 小説に戻る</a>
+    <a href="home.html">← トップへ戻る</a>
   </div>
 
 </div>
