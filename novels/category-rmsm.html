@@ -1,37 +1,108 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rmsmの小説</title>
-  <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>それ以外の小説</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee5ff;
+  background-image:
+    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: #5b506b;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+/* 中央のボックス */
+.box {
+  width: 88%;
+  max-width: 420px;
+  padding: 35px 25px;
+  box-sizing: border-box;
+  background: #faf7ff;
+  border: 2px solid #cdb5ea;
+  border-radius: 22px;
+}
+
+/* タイトル */
+h1 {
+  margin: 0 0 25px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #665078;
+}
+
+/* 小説一覧 */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+li a {
+  display: block;
+  padding: 13px 15px;
+  border: 2px solid #cdb5ea;
+  border-radius: 10px;
+  background: #fff;
+  color: #665078;
+  text-decoration: none;
+  text-align: center;
+}
+
+li a:hover {
+  background: #dfd0f5;
+}
+
+/* 戻る */
+.back {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.back a {
+  color: #8b6b9d;
+  font-size: 13px;
+  text-decoration: none;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>rmsm</h1>
-  </header>
+<div class="box">
 
-  <main>
+  <h1>それ以外</h1>
 
-    <p>小説一覧</p>
+  <ul>
+    <li>
+      <a href="novel-03.html">小説タイトル1</a>
+    </li>
 
-    <ul>
-      <li>
-        <a href="novel-01.html">小説タイトル1</a>
-      </li>
+    <li>
+      <a href="novel-04.html">小説タイトル2</a>
+    </li>
+  </ul>
 
-      <li>
-        <a href="novel-02.html">小説タイトル2</a>
-      </li>
-    </ul>
+  <div class="back">
+    <a href="../novel.html">← 小説に戻る</a>
+  </div>
 
-    <p>
-      <a href="../novel.html">← 小説一覧に戻る</a>
-    </p>
-
-  </main>
+</div>
 
 </body>
 </html>
