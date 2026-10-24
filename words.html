@@ -58,6 +58,13 @@ h1 {
   text-decoration: none;
 }
 </style>
+  
+<script>
+if (sessionStorage.getItem("wordsQuizPassed") !== "yes") {
+  window.location.replace("quiz.html");
+}
+</script>
+
 </head>
 
 <body>
