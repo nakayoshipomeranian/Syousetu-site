@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ひみつの部屋 | rmsm</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee5ff;
+  background-image:
+    linear-gradient(rgba(203,180,235,.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203,180,235,.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: #5b506b;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+.box {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 22px;
+  background: #faf7ff;
+  border: 2px solid #cdb5ea;
+  border-radius: 22px;
+}
+h1 {
+  text-align: center;
+  font-size: 25px;
+  color: #665078;
+}
+.sub {
+  text-align: center;
+  font-size: 12px;
+  color: #987eaf;
+  letter-spacing: 2px;
+}
+#count { margin-top: 25px; font-size: 12px; }
+#question { line-height: 1.8; font-size: 17px; }
+.choice {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  border: 1px solid #cdb5ea;
+  border-radius: 12px;
+  background: white;
+  color: #5b506b;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.choice:active { background: #eee5ff; }
+#message {
+  min-height: 28px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 16px;
+}
+a { color: #8b6b9d; }
+</style>
+</head>
+<body>
+<main class="box">
+  <p class="sub">☾　rmsm secret room　☽</p>
+  <h1>ひみつの部屋</h1>
+  <p class="sub">✦ 3つのクイズに答えてね ✦</p>
+
+  <p id="count"></p>
+  <h2 id="question"></h2>
+  <div id="choices"></div>
+  <p id="message" aria-live="polite"></p>
+</main>
+
+<script>
+const quiz = [
+  {
+    q: "第1問：好きな色は？",
+    a: ["赤", "紫", "黄色"],
+    correct: 1
+  },
+  {
+    q: "第2問：好きな季節は？",
+    a: ["春", "夏", "秋"],
+    correct: 2
+  },
+  {
+    q: "第3問：秘密の合言葉は？",
+    a: ["月と星", "太陽と海", "花と雨"],
+    correct: 0
+  }
+];
+
+let current = 0;
+
+function showQuestion() {
+  document.getElementById("count").textContent =
+    "QUESTION " + (current + 1) + " / 3";
+  document.getElementById("question").textContent =
+    quiz[current].q;
+  document.getElementById("message").textContent = "";
+
+  const area = document.getElementById("choices");
+  area.replaceChildren();
+
+  quiz[current].a.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.className = "choice";
+    button.textContent = ["A. ", "B. ", "C. "][index] + answer;
+    button.addEventListener("click", () => checkAnswer(index));
+    area.appendChild(button);
+  });
+}
+
+function checkAnswer(index) {
+  if (index !== quiz[current].correct) {
+    current = 0;
+    document.getElementById("message").textContent =
+      "あれれ？ もう一度チャレンジしてね。";
+    setTimeout(showQuestion, 900);
+    return;
+  }
+
+  current++;
+
+  if (current === quiz.length) {
+    sessionStorage.setItem("wordsQuizPassed", "yes");
+    document.querySelector(".box").innerHTML = `
+      <p class="sub">☾　rmsm secret room　☽</p>
+      <h1>正解！ ✦</h1>
+      <p style="text-align:center;line-height:2">
+        秘密の扉が開いたよ。<br>
+        どうぞ、ゆっくり読んでいってね。
+      </p>
+      <p style="text-align:center">
+        <a href="words.html">「偏見」を読む →</a>
+      </p>`;
+  } else {
+    showQuestion();
+    document.getElementById("message").textContent =
+      "正解！ 次の問題へ ✦";
+  }
+}
+
+showQuestion();
+</script>
+</body>
+</html>
