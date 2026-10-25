@@ -1,74 +1,140 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026年8月の写真 | rmsm</title>
+<title>写真たち　その1 | rmsm</title>
+
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   color: #5b506b;
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   background-color: #eee5ff;
   background-image:
-    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+    linear-gradient(rgba(203,180,235,0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203,180,235,0.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
 .container {
-  width: 88%;
+  width: 90%;
   max-width: 600px;
   margin: 30px auto;
 }
+
 header {
   text-align: center;
-  padding: 30px 20px;
+  padding: 28px 16px;
   background: #dfd0f5;
   border-radius: 20px;
   border: 3px dotted #b99bdd;
-  box-sizing: border-box;
 }
+
 header h1 {
   margin: 0;
   font-size: 24px;
-  font-weight: bold;
   color: #665078;
 }
+
 /* 写真一覧 */
 .gallery {
   margin-top: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
+
 .photo {
-  padding: 12px;
+  min-width: 0;
+  padding: 8px;
   background: #fff;
   border: 2px solid #cdb5ea;
-  border-radius: 16px;
-  box-sizing: border-box;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
+
+.photo:active {
+  transform: scale(0.97);
+}
+
 .photo img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
 }
-/* 写真の説明 */
+
 .caption {
-  margin-top: 10px;
+  margin-top: 8px;
   text-align: center;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.6;
   color: #7b6b89;
+  overflow-wrap: anywhere;
 }
-/* 戻るボタン */
+
+/* 拡大表示画面 */
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 20px;
+  background: rgba(43,32,55,0.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.viewer.open {
+  display: flex;
+}
+
+.viewer img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 0 5px #dfd0f5;
+}
+
+.viewer-caption {
+  margin-top: 16px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #dfd0f5;
+  border-radius: 50%;
+  background: #fff;
+  color: #665078;
+  font-size: 26px;
+  cursor: pointer;
+}
+
 .back {
   display: block;
-  width: 100%;
-  box-sizing: border-box;
   margin-top: 20px;
-  padding: 15px;
+  padding: 14px;
   text-align: center;
   text-decoration: none;
   color: #5b506b;
@@ -76,44 +142,265 @@ header h1 {
   border: 2px solid #cdb5ea;
   border-radius: 14px;
 }
+
+.back + .back {
+  margin-top: 10px;
+}
 </style>
 </head>
+
 <body>
 <div class="container">
+
 <header>
-  <h1>2026年8月の写真</h1>
+  <h1>写真たち　その1</h1>
 </header>
+
 <div class="gallery">
-  <!-- 写真1 -->
-  <div class="photo">
-<img src="ここに写真ファイル名.jpg" alt="2026年8月の写真">
-<div class="caption">
-  ここに説明を書きます。
-</div>
+
+  <!-- 写真01 -->
+  <div class="photo" data-caption="Photo-01">
+    <img src="Photo-01.jpg" alt="Photo-01">
+    <div class="caption">Photo-01</div>
   </div>
-  <!-- 写真2 -->
-  <div class="photo">
-<img src="ここに写真ファイル名.jpg" alt="2026年8月の写真">
-<div class="caption">
-  ここに説明を書きます。
-</div>
+
+  <!-- 写真02 -->
+  <div class="photo" data-caption="Photo-02">
+    <img src="Photo-02.jpg" alt="Photo-02">
+    <div class="caption">Photo-02</div>
   </div>
-  <!-- 写真3 -->
-  <div class="photo">
-<img src="ここに写真ファイル名.jpg" alt="2026年8月の写真">
-<div class="caption">
-  ここに説明を書きます。
-</div>
+
+  <!-- 写真03 -->
+  <div class="photo" data-caption="Photo-03">
+    <img src="Photo-03.jpg" alt="Photo-03">
+    <div class="caption">Photo-03</div>
   </div>
+
+  <!-- 写真04 -->
+  <div class="photo" data-caption="Photo-04">
+    <img src="Photo-04.jpg" alt="Photo-04">
+    <div class="caption">Photo-04</div>
+  </div>
+
+  <!-- 写真05 -->
+  <div class="photo" data-caption="Photo-05">
+    <img src="Photo-05.jpg" alt="Photo-05">
+    <div class="caption">Photo-05</div>
+  </div>
+
+  <!-- 写真06 -->
+  <div class="photo" data-caption="Photo-06">
+    <img src="Photo-06.jpg" alt="Photo-06">
+    <div class="caption">Photo-06</div>
+  </div>
+
+  <!-- 写真07 -->
+  <div class="photo" data-caption="Photo-07">
+    <img src="Photo-07.jpg" alt="Photo-07">
+    <div class="caption">Photo-07</div>
+  </div>
+
+  <!-- 写真08 -->
+  <div class="photo" data-caption="Photo-08">
+    <img src="Photo-08.jpg" alt="Photo-08">
+    <div class="caption">Photo-08</div>
+  </div>
+
+  <!-- 写真09 -->
+  <div class="photo" data-caption="Photo-09">
+    <img src="Photo-09.jpg" alt="Photo-09">
+    <div class="caption">Photo-09</div>
+  </div>
+
+  <!-- 写真10 -->
+  <div class="photo" data-caption="Photo-10">
+    <img src="Photo-10.jpg" alt="Photo-10">
+    <div class="caption">Photo-10</div>
+  </div>
+
+  <!-- 写真11 -->
+  <div class="photo" data-caption="Photo-11">
+    <img src="Photo-11.jpg" alt="Photo-11">
+    <div class="caption">Photo-11</div>
+  </div>
+
+  <!-- 写真12 -->
+  <div class="photo" data-caption="Photo-12">
+    <img src="Photo-12.jpg" alt="Photo-12">
+    <div class="caption">Photo-12</div>
+  </div>
+
+  <!-- 写真13 -->
+  <div class="photo" data-caption="Photo-13">
+    <img src="Photo-13.jpg" alt="Photo-13">
+    <div class="caption">Photo-13</div>
+  </div>
+
+  <!-- 写真14 -->
+  <div class="photo" data-caption="Photo-14">
+    <img src="Photo-14.jpg" alt="Photo-14">
+    <div class="caption">Photo-14</div>
+  </div>
+
+  <!-- 写真15 -->
+  <div class="photo" data-caption="Photo-15">
+    <img src="Photo-15.jpg" alt="Photo-15">
+    <div class="caption">Photo-15</div>
+  </div>
+
+  <!-- 写真16 -->
+  <div class="photo" data-caption="Photo-16">
+    <img src="Photo-16.jpg" alt="Photo-16">
+    <div class="caption">Photo-16</div>
+  </div>
+
+  <!-- 写真17 -->
+  <div class="photo" data-caption="Photo-17">
+    <img src="Photo-17.jpg" alt="Photo-17">
+    <div class="caption">Photo-17</div>
+  </div>
+
+  <!-- 写真18 -->
+  <div class="photo" data-caption="Photo-18">
+    <img src="Photo-18.jpg" alt="Photo-18">
+    <div class="caption">Photo-18</div>
+  </div>
+
+  <!-- 写真19 -->
+  <div class="photo" data-caption="Photo-19">
+    <img src="Photo-19.jpg" alt="Photo-19">
+    <div class="caption">Photo-19</div>
+  </div>
+
+  <!-- 写真20 -->
+  <div class="photo" data-caption="Photo-20">
+    <img src="Photo-20.jpg" alt="Photo-20">
+    <div class="caption">Photo-20</div>
+  </div>
+
+  <!-- 写真21 -->
+  <div class="photo" data-caption="Photo-21">
+    <img src="Photo-21.jpg" alt="Photo-21">
+    <div class="caption">Photo-21</div>
+  </div>
+
+  <!-- 写真22 -->
+  <div class="photo" data-caption="Photo-22">
+    <img src="Photo-22.jpg" alt="Photo-22">
+    <div class="caption">Photo-22</div>
+  </div>
+
+  <!-- 写真23 -->
+  <div class="photo" data-caption="Photo-23">
+    <img src="Photo-23.jpg" alt="Photo-23">
+    <div class="caption">Photo-23</div>
+  </div>
+
+  <!-- 写真24 -->
+  <div class="photo" data-caption="Photo-24">
+    <img src="Photo-24.jpg" alt="Photo-24">
+    <div class="caption">Photo-24</div>
+  </div>
+
+  <!-- 写真25 -->
+  <div class="photo" data-caption="Photo-25">
+    <img src="Photo-25.jpg" alt="Photo-25">
+    <div class="caption">Photo-25</div>
+  </div>
+
+  <!-- 写真26 -->
+  <div class="photo" data-caption="Photo-26">
+    <img src="Photo-26.jpg" alt="Photo-26">
+    <div class="caption">Photo-26</div>
+  </div>
+
+  <!-- 写真27 -->
+  <div class="photo" data-caption="Photo-27">
+    <img src="Photo-27.jpg" alt="Photo-27">
+    <div class="caption">Photo-27</div>
+  </div>
+
+  <!-- 写真28 -->
+  <div class="photo" data-caption="Photo-28">
+    <img src="Photo-28.jpg" alt="Photo-28">
+    <div class="caption">Photo-28</div>
+  </div>
+
+  <!-- 写真29 -->
+  <div class="photo" data-caption="Photo-29">
+    <img src="Photo-29.jpg" alt="Photo-29">
+    <div class="caption">Photo-29</div>
+  </div>
+
+  <!-- 写真30 -->
+  <div class="photo" data-caption="Photo-30">
+    <img src="Photo-30.jpg" alt="Photo-30">
+    <div class="caption">Photo-30</div>
+  </div>
+
 </div>
-<!-- 写真一覧へ戻る -->
-<a class="back" href="photo.html">
-  写真一覧へ戻る
-</a>
-<!-- トップへ戻る -->
-<a class="back" href="home.html">
-  トップへ戻る
-</a>
+
+<a class="back" href="illust.html">イラスト一覧へ戻る</a>
+<a class="back" href="index.html">トップへ戻る</a>
+
 </div>
+
+<!-- 拡大表示 -->
+<div class="viewer" id="viewer">
+  <button class="close" id="closeViewer" aria-label="閉じる">×</button>
+  <img id="largeImage" src="" alt="">
+  <div class="viewer-caption" id="largeCaption"></div>
+</div>
+
+<script>
+(function () {
+  const viewer = document.getElementById("viewer");
+  const largeImage = document.getElementById("largeImage");
+  const largeCaption = document.getElementById("largeCaption");
+  const closeViewer = document.getElementById("closeViewer");
+
+  if (!viewer || !largeImage || !largeCaption || !closeViewer) {
+    return;
+  }
+
+  document.querySelectorAll(".photo").forEach(function (card) {
+    card.addEventListener("click", function () {
+      const image = card.querySelector("img");
+
+      if (!image || !image.complete || image.naturalWidth === 0) {
+        return;
+      }
+
+      largeImage.src = image.src;
+      largeImage.alt = image.alt || "";
+      largeCaption.textContent = card.dataset.caption || "";
+
+      viewer.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeImage() {
+    viewer.classList.remove("open");
+    largeImage.removeAttribute("src");
+    document.body.style.overflow = "";
+  }
+
+  closeViewer.addEventListener("click", closeImage);
+
+  viewer.addEventListener("click", function (event) {
+    if (event.target === viewer) {
+      closeImage();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeImage();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
