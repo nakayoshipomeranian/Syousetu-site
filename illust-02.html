@@ -1,1 +1,312 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イラスト集その1 | rmsm</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #5b506b;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  background-color: #eee5ff;
+  background-image:
+    linear-gradient(rgba(203, 180, 235, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 180, 235, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+header {
+  text-align: center;
+  padding: 28px 16px;
+  background: #dfd0f5;
+  border-radius: 20px;
+  border: 3px dotted #b99bdd;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #665078;
+}
+
+header p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #7b6b89;
+}
+
+/* サムネイル一覧 */
+.gallery {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.illust {
+  min-width: 0;
+  padding: 8px;
+  background: #fff;
+  border: 2px solid #cdb5ea;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.illust:active {
+  transform: scale(0.97);
+}
+
+.illust img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.caption {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #7b6b89;
+  overflow-wrap: anywhere;
+}
+
+/* 拡大表示 */
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 20px;
+  background: rgba(43, 32, 55, 0.88);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.viewer.open {
+  display: flex;
+}
+
+.viewer img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 0 5px #dfd0f5;
+}
+
+.viewer-caption {
+  margin-top: 16px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #dfd0f5;
+  border-radius: 50%;
+  background: #fff;
+  color: #665078;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.back {
+  display: block;
+  margin-top: 20px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  color: #5b506b;
+  background: #fff;
+  border: 2px solid #cdb5ea;
+  border-radius: 14px;
+}
+
+.back + .back {
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>イラスト集その1</h1>
+</header>
+
+<div class="gallery">
+
+  <!-- イラスト1 -->
+  <div class="illust"
+       data-caption="ポッケに入れて出勤。魔法少女みたい。">
+    <img src="イラスト125.png" alt="イラスト75">
+    <div class="caption">
+      ポッケに入れて出勤。魔法少女みたい。
+    </div>
+  </div>
+
+  <!-- イラスト2：画像名と説明を変更してね -->
+  <div class="illust"
+       data-caption="小さくなっても元気だなあ">
+    <img src="イラスト18.png" alt="イラスト2">
+    <div class="caption">
+      小さくなっても元気だなあ
+    </div>
+  </div>
+
+  <!-- イラスト3：画像名と説明を変更してね -->
+  <div class="illust"
+       data-caption="間違えてチケットを一枚多く買ってしまい、二回ディズニーシーに行った月があって、描いた……。">
+    <img src="イラスト120.png" alt="イラスト3">
+    <div class="caption">
+      間違えてチケットを一枚多く買ってしまい、二回ディズニーシーに行った月があって、描いた……。
+    </div>
+  </div>
+
+  <!-- 新しい作品は、このカードをコピーして追加してね -->
+  <div class="illust"
+       data-caption="学パロは一歳差が巨大になって好き。">
+    <img src=" イラスト119.png" alt="イラスト3">
+    <div class="caption">
+      学パロは一歳差が巨大になって好き。
+    </div>
+  </div>
+
+  <!-- 新しい作品は、このカードをコピーして追加してね -->
+  <div class="illust"
+       data-caption="絵柄安定しないけど、このくらいの絵を描いてる時一番楽しい気がする。">
+    <img src="イラスト114.png" alt="イラスト3">
+    <div class="caption">
+     絵柄安定しないけど、このくらいの絵を描いてる時一番楽しい気がする。
+    </div>
+  </div>
+
+  <!-- 新しい作品は、このカードをコピーして追加してね -->
+  <div class="illust"
+       data-caption="オンリーのタイトル素敵ですね。私は「願いが叶う村……とか？」って言っててセンス皆無でした。">
+    <img src="イラスト116.png" alt="イラスト3">
+    <div class="caption">
+      オンリーのタイトル素敵ですね。私は「願いが叶う村……とか？」って言っててセンス皆無でした。"
+    </div>
+  </div>
+
+  <!-- 新しい作品は、このカードをコピーして追加してね -->
+  <div class="illust"
+       data-caption="個人的に好きなところ→落語が始まるなら聞く用意のある村雨。">
+    <img src="イラスト20260830.png" alt="イラスト3">
+    <div class="caption">
+      個人的に好きなところ→落語が始まるなら聞く用意のある村雨。
+    </div>
+  </div>
+
+  <!-- 新しい作品は、このカードをコピーして追加してね -->
+  <div class="illust"
+       data-caption="全員平等に愛してくれるだろうと思うと萌えすぎるし、お前だけだよ♡って言いまくって痛い目見るのも良い。">
+    <img src="イラスト20260919.png" alt="イラスト3">
+    <div class="caption">
+      全員平等に愛してくれるだろうと思うと萌えすぎるし、お前だけだよ♡って言いまくって痛い目見るのも良い。
+    </div>
+  </div>
+
+   <!-- 新しい作品は、このカードをコピーして追加してね -->
+  <div class="illust"
+       data-caption="絵画教室に通って半年。最近はデッサンを休んで水彩画をやってます。">
+    <img src="イラスト20260821.png" alt="イラスト3">
+    <div class="caption">
+      絵画教室に通って半年。最近はデッサンを休んで水彩画をやってます。
+    </div>
+  </div>
+
+</div>
+
+<a class="back" href="illust.html">イラスト一覧へ戻る</a>
+<a class="back" href="home.html">トップへ戻る</a>
+
+</div>
+
+<!-- 拡大表示用の画面 -->
+<div class="viewer" id="viewer" role="dialog"
+     aria-modal="true" aria-label="イラスト拡大表示">
+  <button class="close" id="closeViewer"
+          aria-label="閉じる">×</button>
+  <img id="largeImage" src="" alt="">
+  <div class="viewer-caption" id="largeCaption"></div>
+</div>
+
+<script>
+const viewer = document.getElementById("viewer");
+const largeImage = document.getElementById("largeImage");
+const largeCaption = document.getElementById("largeCaption");
+const closeViewer = document.getElementById("closeViewer");
+
+document.querySelectorAll(".illust").forEach(card => {
+  card.addEventListener("click", () => {
+    const image = card.querySelector("img");
+
+    // 画像が存在しないカードは開かない
+    if (!image.complete || image.naturalWidth === 0) {
+      return;
+    }
+
+    largeImage.src = image.src;
+    largeImage.alt = image.alt;
+    largeCaption.textContent = card.dataset.caption || "";
+
+    viewer.classList.add("open");
+    document.body.style.overflow = "hidden";
+    closeViewer.focus();
+  });
+});
+
+function closeImage() {
+  viewer.classList.remove("open");
+  largeImage.src = "";
+  document.body.style.overflow = "";
+}
+
+closeViewer.addEventListener("click", closeImage);
+
+// 画像の外側をタップしても閉じる
+viewer.addEventListener("click", event => {
+  if (event.target === viewer) {
+    closeImage();
+  }
+});
+
+// Escキーでも閉じる
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeImage();
+  }
+});
+</script>
+
+</body>
+</html>
+
